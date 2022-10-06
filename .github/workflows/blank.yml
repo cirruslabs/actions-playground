@@ -1,7 +1,8 @@
-
 name: CI
 
 on:
+  schedule:
+    - cron: "*/15 * * * *"
   push:
     branches: [ "main" ]
   pull_request:
@@ -16,5 +17,5 @@ jobs:
         run: echo Hello, world!
       
       - name: sleep
-        run: sleep $((RANDOM % 300))
+        run: sleep $((RANDOM % 120))
 
