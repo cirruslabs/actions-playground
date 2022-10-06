@@ -20,6 +20,9 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
       
-      - name: sleep
+      - name: sleep 30
+        run: sleep 30
+      
+      - name: sleep random
         run: sleep $((RANDOM % 60))
 
