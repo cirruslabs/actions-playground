@@ -2,7 +2,7 @@ name: CI
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/30 * * * *"
   push:
     branches: [ "main" ]
   pull_request:
@@ -20,9 +20,9 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
       
-      - name: sleep 30
-        run: sleep 30
+      - name: sleep 120
+        run: sleep 120
       
       - name: sleep random
-        run: sleep $((RANDOM % 60))
+        run: sleep $((RANDOM % 120))
 
