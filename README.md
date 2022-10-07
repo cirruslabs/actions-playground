@@ -1,3 +1,3 @@
 # actions-playground
 
-test 2
+test
