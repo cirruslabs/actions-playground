@@ -22,7 +22,4 @@ jobs:
       
       - name: sleep 120
         run: sleep 120
-      
-      - name: sleep random
-        run: sleep $((RANDOM % 120))
 
