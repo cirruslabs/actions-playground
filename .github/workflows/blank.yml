@@ -20,6 +20,6 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
       
-      - name: sleep 120
-        run: sleep 120
+      - name: sleep 300
+        run: sleep 300
 
