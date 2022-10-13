@@ -14,7 +14,7 @@ jobs:
       matrix:
         partition: [1, 2 , 3]
         
-    runs-on: [self-hosted, cirrus, "ghcr.io/cirruslabs/macos-ventura-xcode:latest"]
+    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
 
     steps:
       - name: Run a one-line script
