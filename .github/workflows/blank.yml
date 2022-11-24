@@ -15,20 +15,12 @@ jobs:
         partition: [1, 2]
         
     runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
-
+    timeout-minutes: 30
+    
     steps:
       - name: Run a one-line script
         run: echo Hello, world!
       - name: diskutil list
         run: diskutil list
-      - name: sleep 1
-        run: sleep 300
-      - name: sleep 2
-        run: sleep 300
-      - name: sleep 3
-        run: sleep 300
-      - name: sleep 4
-        run: sleep 300
-      - name: curl
-        run: curl icanhazip.com
-
+      - name: ping
+        run: ping google.com
