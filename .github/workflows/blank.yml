@@ -15,7 +15,7 @@ jobs:
         partition: [1, 2]
         
     runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     
     steps:
       - name: Run a one-line script
