@@ -23,4 +23,4 @@ jobs:
       - name: diskutil list
         run: diskutil list
       - name: sleep
-        run: sleep 120
+        run: sleep 60
