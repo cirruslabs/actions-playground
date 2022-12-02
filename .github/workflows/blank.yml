@@ -22,5 +22,5 @@ jobs:
         run: echo Hello, world!
       - name: diskutil list
         run: diskutil list
-      - name: ping
-        run: ping google.com
+      - name: sleep
+        run: sleep 120
