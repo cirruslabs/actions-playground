@@ -18,8 +18,8 @@ jobs:
     timeout-minutes: 15
     
     steps:
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: network
+        run: networkQuality
       - name: diskutil list
         run: diskutil list
       - name: sleep
