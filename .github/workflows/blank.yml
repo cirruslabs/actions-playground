@@ -20,9 +20,9 @@ jobs:
       - name: install
         run: brew install gh
       - name: generate
-        run: dd if=/dev/urandom of=sample.txt bs=300M count=1
+        run: dd if=/dev/urandom of=sample.txt bs=100M count=1
       - name: release
         env:
           DEBUG: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create --generate-notes v0.0.7 sample.txt
+        run: gh release create --generate-notes v0.0.8 sample.txt
