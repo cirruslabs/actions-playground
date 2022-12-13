@@ -14,6 +14,7 @@ jobs:
     runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
     
     steps:
+      - uses: actions/checkout@v3
       - name: network
         run: networkQuality
       - name: install
