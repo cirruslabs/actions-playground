@@ -21,4 +21,4 @@ jobs:
       - name: generate
         run: dd if=/dev/urandom of=sample.txt bs=300M count=1
       - name: release
-        run: gh create v0.0.1 sample.txt
+        run: gh release create --generate-notes v0.0.1 sample.txt
