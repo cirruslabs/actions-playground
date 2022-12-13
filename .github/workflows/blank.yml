@@ -9,18 +9,16 @@ on:
     branches: [ "main" ]
 
 jobs:
-  example_matrix:
-    strategy:
-      matrix:
-        partition: [1, 2]
+  release_matrix:
         
     runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
-    timeout-minutes: 15
     
     steps:
       - name: network
         run: networkQuality
-      - name: diskutil list
-        run: diskutil list
-      - name: sleep
-        run: sleep 100
+      - name: install
+        run: brew install gh
+      - name: generate
+        run: dd if=/dev/urandom of=sample.txt bs=300M count=1
+      - name: release
+        run: gh create v0.0.1 sample.txt
