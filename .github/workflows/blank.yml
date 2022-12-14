@@ -25,4 +25,4 @@ jobs:
         env:
           DEBUG: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create --generate-notes v0.0.9 sample.txt
+        run: gh release create --generate-notes v0.0.10 sample.txt
