@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: network
         run: networkQuality
+      - name: disk
+        run: df -h
       - name: install
         run: brew install gh
       - name: generate
