@@ -10,8 +10,8 @@ on:
 
 jobs:
   macos:
-    name: macOS on Intel 😪	
-    runs-on: macos-latest
+    name: macOS on Apple Silicon 😍	
+    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
     
     steps:
       - uses: actions/checkout@v3
