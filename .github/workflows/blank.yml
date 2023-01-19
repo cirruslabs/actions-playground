@@ -9,10 +9,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  macos:
-    name: macOS on Apple Silicon 🎉
-  
-    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
+  macos:	
+    name: macOS on Intel 😪	
+    runs-on: macos-latest
     
     steps:
       - uses: actions/checkout@v3
