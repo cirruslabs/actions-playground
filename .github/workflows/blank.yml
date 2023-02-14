@@ -11,7 +11,7 @@ on:
 jobs:
   macos:
     name: macOS on Apple Silicon 😍	
-    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:14.0.1
+    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:14
     
     steps:
       - uses: actions/checkout@v3
@@ -23,8 +23,3 @@ jobs:
         run: brew install gh
       - name: generate
         run: dd if=/dev/urandom of=sample.txt bs=300M count=1
-      - name: release
-        env:
-          DEBUG: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create --generate-notes v0.0.11 sample.txt
