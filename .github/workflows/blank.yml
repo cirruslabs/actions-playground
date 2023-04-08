@@ -11,7 +11,7 @@ on:
 jobs:
   macos:
     name: macOS on Apple Silicon 😍	
-    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:14
+    runs-on: ghcr.io/cirruslabs/macos-ventura-base:latest
     
     steps:
       - uses: actions/checkout@v3
