@@ -19,7 +19,5 @@ jobs:
         run: networkQuality
       - name: disk
         run: df -h
-      - name: install
-        run: brew install gh
-      - name: generate
-        run: dd if=/dev/urandom of=sample.txt bs=300M count=1
+      - name: version
+        run: nvm --version && node --version
