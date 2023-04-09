@@ -15,7 +15,5 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      - name: link
-        run: ln -s ~/.zprofile ~/.bash_profile
       - name: version
         run: nvm --version && node --version
