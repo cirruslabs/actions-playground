@@ -15,9 +15,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      - name: network
-        run: networkQuality
-      - name: disk
-        run: df -h
+      - name: cat
+        run: cat ~/.zprofile
       - name: version
         run: nvm --version && node --version
