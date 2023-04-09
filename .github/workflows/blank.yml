@@ -16,4 +16,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: version
-        run: nvm --version && node --version
+        run: source ~/.profile && nvm --version && node --version
