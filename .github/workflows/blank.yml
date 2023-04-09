@@ -15,7 +15,6 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      - name: cat
-        run: cat ~/.zprofile
       - name: version
+        shell: zsh {0}
         run: nvm --version && node --version
