@@ -11,9 +11,11 @@ on:
 jobs:
   macos:
     name: macOS on Apple Silicon 😍	
-    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:14.2
+    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
     
     steps:
       - uses: actions/checkout@v3
-      - name: version
-        run: node --version
+      - name: install
+        run: brew tap jakehilborn/jakehilborn && brew install displayplacer
+      - name: list
+        run: displayplacer list
