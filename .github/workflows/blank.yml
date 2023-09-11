@@ -19,3 +19,5 @@ jobs:
         run: brew update && brew tap jakehilborn/jakehilborn && brew install displayplacer
       - name: list
         run: displayplacer list
+      - name: sysctl
+        run: sysctl -n hw.memsize
