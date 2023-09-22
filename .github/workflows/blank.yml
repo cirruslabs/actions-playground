@@ -11,7 +11,7 @@ on:
 jobs:
   macos:
     name: macOS on Apple Silicon 😍	
-    runs-on: ghcr.io/cirruslabs/macos-sonoma-xcode:15
+    runs-on: ghcr.io/cirruslabs/macos-sonoma-xcode:15-xl
     
     steps:
       - uses: actions/checkout@v3
