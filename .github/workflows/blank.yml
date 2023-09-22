@@ -20,4 +20,4 @@ jobs:
       - name: list
         run: displayplacer list
       - name: sysctl
-        run: sysctl -n hw.memsize
+        run: sysctl hw.ncpu && sysctl hw.memsize
