@@ -19,8 +19,8 @@ jobs:
         run: brew update && brew tap jakehilborn/jakehilborn && brew install displayplacer
       - name: list
         run: displayplacer list
-      - name: sysctl
-        run: sysctl hw.ncpu && sysctl hw.memsize
+      - name: system_profiler
+        run: system_profiler SPSoftwareDataType SPHardwareDataType
       - name: uname
         run: uname -a
       - name: whoami
