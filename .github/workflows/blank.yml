@@ -10,8 +10,8 @@ on:
 
 jobs:
   macos:
-    name: macOS on Apple Silicon 😍	
-    runs-on: macos-latest-xlarge
+    name: macOS
+    runs-on: macos-latest
     
     steps:
       - uses: actions/checkout@v3
