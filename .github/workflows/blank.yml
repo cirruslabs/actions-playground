@@ -11,7 +11,7 @@ on:
 jobs:
   macos:
     name: macOS on Apple Silicon 😍	
-    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest-xl
+    runs-on: macos-latest-xlarge
     
     steps:
       - uses: actions/checkout@v3
@@ -21,3 +21,7 @@ jobs:
         run: displayplacer list
       - name: sysctl
         run: sysctl hw.ncpu && sysctl hw.memsize
+      - name: uname
+        run: uname -a
+      - name: version
+        run: ls -l /dev/*tart-version-*
