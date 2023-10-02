@@ -23,5 +23,5 @@ jobs:
         run: sysctl hw.ncpu && sysctl hw.memsize
       - name: uname
         run: uname -a
-      - name: version
-        run: ls -l /dev/*tart-version-*
+      - name: whoami
+        run: whoami
