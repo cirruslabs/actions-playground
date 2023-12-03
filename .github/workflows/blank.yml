@@ -11,7 +11,7 @@ on:
 jobs:
   macos:
     name: macOS
-    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:14.3.1
+    runs-on: ghcr.io/cirruslabs/macos-sonoma-xcode:latest
     
     steps:
       - uses: actions/checkout@v3
