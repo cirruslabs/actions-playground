@@ -23,5 +23,7 @@ jobs:
         run: system_profiler SPSoftwareDataType SPHardwareDataType
       - name: uname
         run: uname -a
+      - name: printenv
+        run: printenv
       - name: whoami
         run: whoami
