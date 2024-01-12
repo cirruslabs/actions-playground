@@ -10,7 +10,7 @@ on:
 
 jobs:
   linux:
-    name: macOS
+    name: Linux Arm
     runs-on: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest
     steps:
       - uses: actions/checkout@v3
