@@ -10,8 +10,11 @@ on:
 
 jobs:
   linux:
-    name: Linux Arm
-    runs-on: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest
+    strategy:
+      matrix:
+        resource_class: ["xl", "lg", "md", "sm"]
+    name: Linux Arm (${{ matrix.resource_class }})
+    runs-on: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest-${{ matrix.resource_class }}
     steps:
       - uses: actions/checkout@v3
       - name: cpuinfo
@@ -20,6 +23,8 @@ jobs:
         run: free -g -h -t
       - name: disk
         run: df -h
+      - name: sleep
+        run: sleep 60
   macos:
     name: macOS
     runs-on: ghcr.io/cirruslabs/macos-sonoma-xcode:latest
