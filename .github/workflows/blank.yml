@@ -18,6 +18,8 @@ jobs:
         run: cat /proc/cpuinfo
       - name: meminfo
         run: cat /proc/meminfo
+      - name: disk
+        run: df -h
   macos:
     name: macOS
     runs-on: ghcr.io/cirruslabs/macos-sonoma-xcode:latest
