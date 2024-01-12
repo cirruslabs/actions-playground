@@ -9,10 +9,16 @@ on:
     branches: [ "main" ]
 
 jobs:
+  linux:
+    name: macOS
+    runs-on: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: info
+        run: sudo lshw
   macos:
     name: macOS
     runs-on: ghcr.io/cirruslabs/macos-sonoma-xcode:latest
-    
     steps:
       - uses: actions/checkout@v3
       - name: install
