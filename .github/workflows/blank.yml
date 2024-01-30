@@ -9,25 +9,12 @@ on:
     branches: [ "main" ]
 
 jobs:
-  linux:
-    strategy:
-      matrix:
-        resource_class: ["xl", "lg", "md", "sm"]
-    name: Linux Arm (${{ matrix.resource_class }})
-    runs-on: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest-${{ matrix.resource_class }}
-    steps:
-      - uses: actions/checkout@v3
-      - name: cpuinfo
-        run: cat /proc/cpuinfo
-      - name: meminfo
-        run: free -g -h -t
-      - name: disk
-        run: df -h
-      - name: sleep
-        run: sleep 60
   macos:
     name: macOS
-    runs-on: ghcr.io/cirruslabs/macos-sonoma-xcode:latest
+    strategy:
+      matrix:
+        runs_on: ["macos-14", "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"]
+    runs-on: ${{ matrix.runs_on }}
     steps:
       - uses: actions/checkout@v3
       - name: install
@@ -42,3 +29,5 @@ jobs:
         run: printenv
       - name: whoami
         run: whoami
+      - name: version
+        run: ls -l /dev/*tart-version-*
