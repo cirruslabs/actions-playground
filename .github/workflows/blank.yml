@@ -29,5 +29,3 @@ jobs:
         run: printenv
       - name: whoami
         run: whoami
-      - name: version
-        run: ls -l /dev/*tart-version-*
