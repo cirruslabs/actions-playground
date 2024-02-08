@@ -20,7 +20,7 @@ jobs:
       - name: install
         run: sudo apt-get install util-linux
       - name: CPU info
-        run: lscpu | grep MHz
+        run: cat /proc/cpuinfo | grep "MHz"
       - name: uname
         run: uname -a
       - name: printenv
