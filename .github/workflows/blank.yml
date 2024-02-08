@@ -10,13 +10,15 @@ on:
 
 jobs:
   macos:
-    name: macOS
+    name: "Test ${{ matrix.runs_on }}"
     strategy:
       matrix:
         runs_on: ["ghcr.io/cirruslabs/ubuntu-runner-arm64:22.04-sm", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"]
     runs-on: ${{ matrix.runs_on }}
     steps:
       - uses: actions/checkout@v3
+      - name: install
+        run: apt-get install util-linux
       - name: CPU info
         run: lscpu | grep MHz
       - name: uname
