@@ -13,17 +13,12 @@ jobs:
     name: "Test ${{ matrix.runs_on }}"
     strategy:
       matrix:
-        runs_on: ["ghcr.io/cirruslabs/ubuntu-runner-arm64:22.04-sm", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"]
+        runs_on: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"]
     runs-on: ${{ matrix.runs_on }}
     steps:
       - uses: actions/checkout@v3
-      - name: install
-        run: sudo apt-get install util-linux
-      - name: CPU info
-        run: cat /proc/cpuinfo | grep "MHz"
-      - name: uname
-        run: uname -a
-      - name: printenv
-        run: printenv
-      - name: whoami
-        run: whoami
+      - name: check
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: emulator -accel-check
