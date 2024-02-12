@@ -16,7 +16,9 @@ jobs:
         runs_on: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"]
     runs-on: ${{ matrix.runs_on }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3      
+      - name: KVM
+        run: kvm-ok
       - name: check
         uses: reactivecircus/android-emulator-runner@v2
         with:
