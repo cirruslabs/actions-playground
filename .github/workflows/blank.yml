@@ -17,9 +17,16 @@ jobs:
     runs-on: ${{ matrix.runs_on }}
     steps:
       - uses: actions/checkout@v3      
-      - name: KVM
-        run: kvm-ok
-      - name: Check Speed
-        run: |
-          sudo apt install speedtest-cli
-          speedtest-cli --secure
+      - name: Cache Binary
+        id: cache-bin
+        uses: actions/cache@v4
+        with:
+          path: testfile
+          key: test-key
+  
+      - name: Generate Binary
+        if: steps.cache-bin.outputs.cache-hit != 'true'
+        run: dd if=/dev/urandom of=testfile bs=1024 count=102400
+  
+      - name: Stat Binary
+        run: stat testfile
