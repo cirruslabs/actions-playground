@@ -17,9 +17,9 @@ jobs:
     runs-on: ${{ matrix.runs_on }}
     steps:
       - uses: actions/checkout@v3      
-      - name: Cache Binary
+      - name: Cache Load
         id: cache-bin
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: testfile
           key: test-key
@@ -30,3 +30,10 @@ jobs:
   
       - name: Stat Binary
         run: stat testfile
+        
+      - name: Cache Save
+        if: steps.cache-bin.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: testfile
+          key: test-key
