@@ -13,20 +13,10 @@ jobs:
     name: "Test ${{ matrix.runs_on }}"
     strategy:
       matrix:
-        runs_on: ["ubuntu-latest", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm", "ghcr.io/cirruslabs/ubuntu-runner-arm64:22.04-sm", "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"]
+        runs_on: ["ubuntu-latest", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm",]
     runs-on: ${{ matrix.runs_on }}
     steps:
       - uses: actions/checkout@v3
-      - name: Cache Binary
-        id: cache-bin
-        uses: actions/cache@v4
-        with:
-          path: testfile
-          key: test-key-2
 
-      - name: Generate Binary
-        if: steps.cache-bin.outputs.cache-hit != 'true'
-        run: dd if=/dev/urandom of=testfile bs=1024 count=302400
-
-      - name: Stat Binary
-        run: stat testfile
+      - name: Pull
+        run: docker pull google/cloud-sdk:emulators
