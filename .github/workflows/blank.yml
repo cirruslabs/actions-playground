@@ -20,3 +20,17 @@ jobs:
 
       - name: Pull
         run: time docker pull google/cloud-sdk:emulators
+
+      - name: Cache Binary
+        id: cache-bin
+        uses: actions/cache@v4
+        with:
+          path: testfile
+          key: test-key-2
+
+      - name: Generate Binary
+        if: steps.cache-bin.outputs.cache-hit != 'true'
+        run: dd if=/dev/urandom of=testfile bs=1024 count=302400
+
+      - name: Stat Binary
+        run: stat testfile
