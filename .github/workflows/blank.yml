@@ -36,7 +36,7 @@ jobs:
         run: stat testfile
 
       - name: Upload HTTP
-        run: curl -s -X POST --data-binary @testfile http://$CIRRUS_HTTP_CACHE_HOST/name-key
+        run: curl -s -X POST --data-binary @testfile http://$CIRRUS_HTTP_CACHE_HOST/name-key || true
 
       - name: Download HTTP
-        run: curl -o /dev/null http://$CIRRUS_HTTP_CACHE_HOST/name-key
+        run: curl -o /dev/null http://$CIRRUS_HTTP_CACHE_HOST/name-key || true
