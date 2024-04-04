@@ -35,6 +35,9 @@ jobs:
       - name: Stat Binary
         run: stat testfile
 
+      - name: Ruby 
+        run: ruby --version
+
       - name: Upload HTTP
         run: curl -s -X POST --data-binary @testfile http://$CIRRUS_HTTP_CACHE_HOST/name-key || true
 
