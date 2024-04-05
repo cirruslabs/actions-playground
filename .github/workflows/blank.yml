@@ -13,33 +13,12 @@ jobs:
     name: "Test ${{ matrix.runs_on }}"
     strategy:
       matrix:
-        runs_on: ["ubuntu-latest", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm", "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"]
+        runs_on: ["ghcr.io/cirruslabs/macos-runner:sonoma"]
     runs-on: ${{ matrix.runs_on }}
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: printenv
-        run: printenv
-
-      - name: Cache Binary
-        id: cache-bin
-        uses: actions/cache@v4
+      - uses: actions/checkout@v3
+      - name: Xcode Select Version
+        uses: mobiledevops/xcode-select-version-action@v1
         with:
-          path: testfile
-          key: test-key-3
-
-      - name: Generate Binary
-        if: steps.cache-bin.outputs.cache-hit != 'true'
-        run: dd if=/dev/urandom of=testfile bs=1024 count=302400
-
-      - name: Stat Binary
-        run: stat testfile
-
-      - name: Ruby 
-        run: ruby --version
-
-      - name: Upload HTTP
-        run: curl -s -X POST --data-binary @testfile http://$CIRRUS_HTTP_CACHE_HOST/name-key || true
-
-      - name: Download HTTP
-        run: curl -o /dev/null http://$CIRRUS_HTTP_CACHE_HOST/name-key || true
+          xcode-select-version: 15.2
+      - run: xcodebuild -version 
