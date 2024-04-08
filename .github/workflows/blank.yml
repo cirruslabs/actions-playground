@@ -10,15 +10,11 @@ on:
 
 jobs:
   macos:
-    name: "Test ${{ matrix.runs_on }}"
-    strategy:
-      matrix:
-        runs_on: ["ghcr.io/cirruslabs/macos-runner:sonoma"]
-    runs-on: ${{ matrix.runs_on }}
+    name: "Run on the fastest infrastructure"
+    runs-on: ghcr.io/cirruslabs/macos-runner:sonoma
     steps:
       - uses: actions/checkout@v3
-      - name: Xcode Select Version
-        uses: mobiledevops/xcode-select-version-action@v1
-        with:
-          xcode-select-version: 15.2.0
-      - run: xcodebuild -version 
+      - name: List Installed Xcodes
+        run: xcodes xcodes
+      - name: Select Xcode 15.2
+        run: sudo xcodes select 15.2
