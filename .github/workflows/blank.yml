@@ -11,7 +11,7 @@ on:
 jobs:
   macos:
     name: "Run on the fastest infrastructure"
-    runs-on: ghcr.io/cirruslabs/macos-runners:sonoma
+    runs-on: ghcr.io/cirruslabs/macos-runner:sonoma
     steps:
       - uses: actions/checkout@v3
       - name: List Installed Xcodes
