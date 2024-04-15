@@ -10,7 +10,7 @@ on:
 
 jobs:
   macos:
-    name: "Run on the fastest infrastructure"
+    name: "Run"
     strategy:
       fail-fast: false
       matrix:
