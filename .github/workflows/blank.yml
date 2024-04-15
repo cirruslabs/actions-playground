@@ -22,3 +22,5 @@ jobs:
         run: sh duration.sh
       - name: Uptime
         run: uptime
+      - name: Node.JS Version
+        run: node --version
