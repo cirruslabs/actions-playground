@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  CACHE_BUSTER: 7
+  CACHE_BUSTER: "${{ github.run_id }}-${{ github.run_attempt }}"
   NUM_OF_1K_BLOCKS: 2560000
 
 jobs:
