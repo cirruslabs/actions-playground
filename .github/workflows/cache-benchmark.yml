@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  CACHE_BUSTER: 5
+  CACHE_BUSTER: 7
   NUM_OF_1K_BLOCKS: 2560000
 
 jobs:
@@ -14,21 +14,18 @@ jobs:
     strategy:
       matrix:
         runs_on:
-          - name: gh-ubuntu
+          - name: github-ubuntu-amd64
             image: "ubuntu-latest"
-          - name: cl-ubuntu-amd64
+          - name: cirrus-ubuntu-amd64
             image: "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"
-          - name: cl-macos-arm64
+          - name: cirrus-ubuntu-arm64
+            image: "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"
+          - name: cirrus-macos-arm64
             image: "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"
 
     runs-on: ${{ matrix.runs_on.image }}
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Print environment
-        run: env
-
       - name: Cache Binary
         id: cache
         uses: actions/cache@v4
@@ -40,30 +37,24 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: dd if=/dev/urandom of=testfile bs=1024 count=${{ env.NUM_OF_1K_BLOCKS }}
 
-      - name: Stat Binary
-        run: stat testfile
-
   cirruslabs-cache:
     name: "${{ matrix.runs_on.name }} + cirruslabs/cache"
 
     strategy:
       matrix:
         runs_on:
-          - name: gh-ubuntu
+          - name: github-ubuntu-amd64
             image: "ubuntu-latest"
-          - name: cl-ubuntu-amd64
+          - name: cirrus-ubuntu-amd64
             image: "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"
-          - name: cl-macos-arm64
+          - name: cirrus-ubuntu-arm64
+            image: "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"
+          - name: cirrus-macos-arm64
             image: "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"
 
     runs-on: ${{ matrix.runs_on.image }}
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Print environment
-        run: env
-
       - name: Cache Binary
         id: cache
         uses: cirruslabs/cache@v4
@@ -74,6 +65,3 @@ jobs:
       - name: Generate Binary
         if: steps.cache.outputs.cache-hit != 'true'
         run: dd if=/dev/urandom of=testfile bs=1024 count=${{ env.NUM_OF_1K_BLOCKS }}
-
-      - name: Stat Binary
-        run: stat testfile
