@@ -24,5 +24,7 @@ jobs:
         run: uptime
       - name: Node.JS Version
         run: node --version
+      - name: Ruby Version
+        run: ruby --version
       - name: env
         run: printenv
