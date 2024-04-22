@@ -14,12 +14,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["macos-14", "ghcr.io/cirruslabs/macos-runner:sonoma"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma"]
     runs-on: ${{ matrix.runner }}   
     steps:
       - uses: actions/checkout@v3
       - name: Uptime
         run: uptime
+      - name: Ruby Workaround
+        run: sudo mkdir -p /Users/runner && sudo chown -R admin:admin /Users/runner
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
