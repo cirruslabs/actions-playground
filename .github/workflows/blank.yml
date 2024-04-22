@@ -24,3 +24,5 @@ jobs:
         run: uptime
       - name: Node.JS Version
         run: node --version
+      - name: env
+        run: printenv
