@@ -24,6 +24,8 @@ jobs:
         run: uptime
       - name: Node.JS Version
         run: node --version
+      - name: Ruby 2.7.8
+        run: rbenv global 2.7.8
       - name: Ruby Version
         run: ruby --version
       - name: env
