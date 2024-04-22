@@ -21,7 +21,7 @@ jobs:
       - name: Uptime
         run: uptime
       - name: Ruby Workaround
-        run: sudo mkdir -p /Users/runner && sudo chown -R admin:admin /Users/runner
+        run: sudo ln -s /Users/admin /Users/runner
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
