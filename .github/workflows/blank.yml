@@ -30,3 +30,5 @@ jobs:
         run: ruby --version
       - name: env
         run: printenv
+      - name: Simulator
+        run: open -a Simulator --args -CurrentDeviceUDID FB636E24-5657-4789-8851-32686A27D052
