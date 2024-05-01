@@ -20,15 +20,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Uptime
         run: uptime
-      - name: Ruby Workaround
-        run: sudo ln -s /Users/admin /Users/runner
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Diagnostic Reports
+        uses: actions/upload-artifact@v4
         with:
-          ruby-version: 2.7
-      - name: Ruby Version
-        run: ruby --version
-      - name: env
-        run: printenv
-      - name: Simulator
-        run: open -a Simulator --args -CurrentDeviceUDID FB636E24-5657-4789-8851-32686A27D052
+          name: diagnostic-reports
+          path: ~/Library/Logs/DiagnosticReports
