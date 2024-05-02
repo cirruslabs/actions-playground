@@ -14,12 +14,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma"]
+        runner: ["macos-14-xlarge", "ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-somona-xcode:15.3"]
     runs-on: ${{ matrix.runner }}   
     steps:
       - uses: actions/checkout@v3
       - name: Uptime
-        run: uptime  
-      - uses: maxim-lobanov/setup-xcode@v1.5.1
-        with:
-          xcode-version: 15.3
+        run: uptime
+      - name: Simulators
+        run: xcrun simctl list
