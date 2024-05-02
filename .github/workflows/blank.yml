@@ -19,9 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Uptime
-        run: uptime
-      - name: Diagnostic Reports
-        uses: actions/upload-artifact@v4
+        run: uptime  
+      - uses: maxim-lobanov/setup-xcode@v1.5.1
         with:
-          name: diagnostic-reports
-          path: ~/Library/Logs/DiagnosticReports
+          xcode-version: 15.3
