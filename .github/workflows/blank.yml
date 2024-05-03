@@ -21,4 +21,5 @@ jobs:
       - name: Uptime
         run: uptime
       - name: Repro
+        shell: /bin/bash -e {0}
         run: echo "url=https://github.com/cirruslabs"$'\n'"username=unused"$'\n'"password=123"$'\n' | sudo git credential approve
