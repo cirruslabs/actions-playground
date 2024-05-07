@@ -23,5 +23,5 @@ jobs:
       - name: SwiftLint
         run: |
           curl -O https://github.com/realm/SwiftLint/releases/download/0.52.1/SwiftLint.pkg
-          sudo install -pkg SwiftLint.pkg -target /
+          sudo installer -pkg SwiftLint.pkg -target /
           swiftlint --version
