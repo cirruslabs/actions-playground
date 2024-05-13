@@ -17,8 +17,12 @@ jobs:
         runner: ["ghcr.io/cirruslabs/macos-sonoma-base:latest"]
     runs-on: ${{ matrix.runner }}   
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Uptime
         run: uptime
       - name: printenv
         run: printenv
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' 
+      - run: python --version
