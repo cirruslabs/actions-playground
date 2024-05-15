@@ -1,0 +1,23 @@
+name: Test SwiftLint Action
+
+on:
+  push:
+
+jobs:
+  test-swiftlint-action:
+    name: "Test SwiftLint Action"
+
+    strategy:
+      matrix:
+        runs_on:
+          - name: cirrus-macos-arm64
+            image: "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"
+
+    runs-on: ${{ matrix.runs_on.image }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cirruslabs/swiftlint-action@delay-return-code
+        with:
+          version: latest
+          strict: true
