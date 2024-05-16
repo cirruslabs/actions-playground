@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-sonoma-xcode:15.4"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma"]
     runs-on: ${{ matrix.runner }}   
     steps:
       - uses: actions/checkout@v4
