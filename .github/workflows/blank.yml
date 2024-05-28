@@ -8,21 +8,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
-jobs:
-  macos:
-    name: "Run"
-    strategy:
-      fail-fast: false
-      matrix:
-        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
-    runs-on: ${{ matrix.runner }}   
-    steps:
-      - uses: actions/checkout@v4
-      - name: Uptime
-        run: uptime
-      - name: printenv
-        run: printenv
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
+test:
+  runs-on: ubuntu-latest
+  env:
+    DOTNET_INSTALL_DIR: "/opt/hostedtoolcache"
+  steps:
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x.x'
