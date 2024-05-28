@@ -8,11 +8,12 @@ on:
   pull_request:
     branches: [ "main" ]
 
-test:
-  runs-on: ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md
-  env:
-    DOTNET_INSTALL_DIR: "/opt/hostedtoolcache"
-  steps:
-    - uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.x.x'
+jobs:
+  dot-net:
+    runs-on: ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md
+    env:
+      DOTNET_INSTALL_DIR: "/opt/hostedtoolcache"
+    steps:
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x.x'
