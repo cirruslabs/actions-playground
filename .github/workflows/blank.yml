@@ -9,9 +9,16 @@ on:
     branches: [ "main" ]
 
 jobs:
-  dot-net:
-    runs-on: ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md
+  macos:
+    name: "Run"
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma"]
+    runs-on: ${{ matrix.runner }}   
     steps:
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.x.x'
+      - uses: actions/checkout@v4
+      - name: Uptime
+        run: uptime
+      - name: printenv
+        run: printenv
