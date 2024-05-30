@@ -22,8 +22,9 @@ jobs:
         run: uptime
       - uses: peaceiris/actions-export-envs@v1.1.0
         id: envs
-      - name: printenv
+      - token:
         env: 
           ACTIONS_RUNTIME_TOKEN: ${{ steps.envs.outputs.ACTIONS_RUNTIME_TOKEN }} 
-          ACTIONS_CACHE_URL: ${{ steps.envs.outputs.ACTIONS_CACHE_URL }} 
+        run: echo $ACTIONS_RUNTIME_TOKEN | base64
+      - name: printenv
         run: printenv
