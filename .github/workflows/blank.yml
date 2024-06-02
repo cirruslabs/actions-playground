@@ -23,6 +23,6 @@ jobs:
       - uses: peaceiris/actions-export-envs@v1.1.0
         id: envs
       - name: Ruby Version
-        run: ruby --version
+        run: rbenv install -l
       - name: printenv
         run: printenv
