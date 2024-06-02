@@ -22,9 +22,7 @@ jobs:
         run: uptime
       - uses: peaceiris/actions-export-envs@v1.1.0
         id: envs
-      - name: token
-        env: 
-          ACTIONS_RUNTIME_TOKEN: ${{ steps.envs.outputs.ACTIONS_RUNTIME_TOKEN }} 
-        run: echo $ACTIONS_RUNTIME_TOKEN | base64
+      - name: Ruby Version
+        run: ruby --version
       - name: printenv
         run: printenv
