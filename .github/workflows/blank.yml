@@ -20,8 +20,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Uptime
         run: uptime
-      - uses: peaceiris/actions-export-envs@v1.1.0
-        id: envs
       - name: Ruby Version
         run: rbenv install -l
       - name: printenv
