@@ -20,7 +20,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Uptime
         run: uptime
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
       - name: Ruby Version
-        run: rbenv install -l
+        run: ruby --version
       - name: printenv
         run: printenv
