@@ -1,0 +1,20 @@
+name: Chacha
+
+on:
+  push:
+
+jobs:
+  chacha:
+    name: "Test Chacha"
+    runs-on: "ghcr.io/cirruslabs/macos-runner:sonoma"
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: printenv
+        run: printenv
+      - run: dd if=/dev/urandom of=test.bin bs=65536 count=1600
+      - uses: edigaryev/cache@chacha
+        with:
+          path: test.bin
+          key: test
