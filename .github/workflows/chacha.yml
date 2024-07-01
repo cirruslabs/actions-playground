@@ -1,0 +1,22 @@
+name: Chacha
+
+on:
+  push:
+
+jobs:
+  chacha:
+    name: "Test Chacha"
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: printenv
+        run: printenv
+      - run: dd if=/dev/urandom of=test.bin bs=65536 count=1600
+      - uses: cirruslabs/cache@v4
+        with:
+          path: test.bin
+          key: test
+    #env:
+      #CIRRUS_CHACHA_URL: "http://chacha.us.cirrus-cache.download:8080/"
