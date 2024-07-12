@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
+        runner: ["macos-14"]
     runs-on: ${{ matrix.runner }}   
     steps:
       - uses: actions/checkout@v4
