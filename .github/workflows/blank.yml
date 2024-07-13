@@ -22,17 +22,6 @@ jobs:
         run: uptime
       - name: IP
         run: curl ifconfig.me
-      - name: Create AVD and generate snapshot for caching
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 30
-          force-avd-creation: false
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: false
-          target: google_apis
-          arch: arm64-v8a
-          avd-name: macOS-avd-arm64-v8a-google_apis
-          channel: canary
           script: |
             set -x
             echo "Generated AVD snapshot for caching."
