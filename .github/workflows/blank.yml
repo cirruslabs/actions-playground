@@ -24,8 +24,6 @@ jobs:
       - name: uname
         run: uname -a
       - name: install
-        run: brew install switchaudio-osx ffmpeg
+        run: brew install switchaudio-osx sox
       - name: switchaudio-osx
         run: SwitchAudioSource -a
-      - name: Devices
-        run: ffmpeg -f avfoundation -list_devices true -i ""
