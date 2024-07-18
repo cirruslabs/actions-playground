@@ -24,18 +24,8 @@ jobs:
       - name: uname
         run: uname -a
       - name: install
-        run: brew install switchaudio-osx
+        run: brew install switchaudio-osx ffmpeg
       - name: switchaudio-osx
         run: SwitchAudioSource -a
-      - name: Play a sound
-        timeout-minutes: 3
-        run: |
-          (sleep 10; screencapture debugscreen_${{ matrix.runner }}.png) &
-          afplay /System/Library/Sounds/Funk.aiff
-          sleep 20
-      - name: Publish debug screenshot
-        if: success() || failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: debugscreen_${{ matrix.runner }}.png
-          path: debugscreen_${{ matrix.runner }}.png
+      - name: Devices
+        run: ffmpeg -f avfoundation -list_devices true -i ""
