@@ -1,12 +1,7 @@
 name: CI
 
 on:
-  # schedule:
-   # - cron: "*/60 * * * *"
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   macos:
@@ -14,16 +9,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "macos-14"]
-    runs-on: ${{ matrix.runner }}   
-    
+        command:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+    runs-on: ghcr.io/cirruslabs/macos-runner:sonoma 
+
     steps:
       - uses: actions/checkout@v4
       - name: Uptime
         run: uptime
       - name: uname
         run: uname -a
-      - name: install
-        run: brew install switchaudio-osx sox
-      - name: switchaudio-osx
-        run: SwitchAudioSource -a
+      - name: echo
+        run: echo $command
