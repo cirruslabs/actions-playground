@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "macos-14"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
     runs-on: ${{ matrix.runner }}   
     
     steps:
@@ -23,7 +23,5 @@ jobs:
         run: uptime
       - name: uname
         run: uname -a
-      - name: install
-        run: brew install switchaudio-osx sox
-      - name: switchaudio-osx
-        run: SwitchAudioSource -a
+      - name: disk
+        run: df -h
