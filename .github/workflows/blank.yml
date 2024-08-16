@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md", "ubuntu-latest"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
     runs-on: ${{ matrix.runner }}   
     
     steps:
