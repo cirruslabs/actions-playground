@@ -1,0 +1,15 @@
+name: GPU benchmarks
+
+on:
+  push:
+
+jobs:
+  macos:
+    name: "HuggingFace's Optimum-Benchmark"
+    runs-on: ghcr.io/cirruslabs/ubuntu-runner-amd64-gpu:22.04
+
+    steps:
+      - uses: actions/setup-python@v5
+      - run: git clone https://github.com/huggingface/optimum-benchmark.git
+      - run: cd optimum-benchmark && sudo pip install -e .
+      - run: cd optimum-benchmark && sudo optimum-benchmark --config-dir examples/ --config-name pytorch_bert
