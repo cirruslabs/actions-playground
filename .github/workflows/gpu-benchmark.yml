@@ -4,19 +4,47 @@ on:
   push:
 
 jobs:
-  macos:
+#  huggingface:
+#    strategy:
+#      matrix:
+#        runs-on:
+#          - ghcr.io/cirruslabs/ubuntu-runner-amd64-gpu:22.04
+#          - group: github-gpu-runners
+#
+#    name: "HuggingFace's Optimum-Benchmark"
+#
+#    runs-on: ${{ matrix.runs-on }}
+#
+#    steps:
+#      - uses: actions/setup-python@v5
+#      - run: git clone https://github.com/huggingface/optimum-benchmark.git
+#      - run: cd optimum-benchmark && sudo pip install -e .
+#      - run: cd optimum-benchmark && sudo optimum-benchmark --config-dir examples/ --config-name pytorch_bert
+
+  mlperf:
     strategy:
       matrix:
         runs-on:
           - ghcr.io/cirruslabs/ubuntu-runner-amd64-gpu:22.04
-          - group: github-gpu-runners
+#          - group: github-gpu-runners
 
-    name: "HuggingFace's Optimum-Benchmark"
+    name: "MLPerf benchmark"
 
     runs-on: ${{ matrix.runs-on }}
 
     steps:
       - uses: actions/setup-python@v5
-      - run: git clone https://github.com/huggingface/optimum-benchmark.git
-      - run: cd optimum-benchmark && sudo pip install -e .
-      - run: cd optimum-benchmark && sudo optimum-benchmark --config-dir examples/ --config-name pytorch_bert
+      - run: |
+          python3 -m venv cm
+          source cm/bin/activate
+          pip install cm4mlops
+          cm run script --tags=run-mlperf,inference,_find-performance,_full,_r4.1 \
+            --model=resnet50 \
+            --implementation=reference \
+            --framework=onnxruntime \
+            --category=edge \
+            --scenario=Offline \
+            --execution_mode=test \
+            --device=cpu  \
+            --docker --quiet \
+            --test_query_count=1000
