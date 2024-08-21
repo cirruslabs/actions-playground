@@ -5,8 +5,15 @@ on:
 
 jobs:
   macos:
+    strategy:
+      matrix:
+        runs-on:
+          - ghcr.io/cirruslabs/ubuntu-runner-amd64-gpu:22.04
+          - group: github-gpu-runners
+
     name: "HuggingFace's Optimum-Benchmark"
-    runs-on: ghcr.io/cirruslabs/ubuntu-runner-amd64-gpu:22.04
+
+    runs-on: ${{ matrix.runs-on }}
 
     steps:
       - uses: actions/setup-python@v5
