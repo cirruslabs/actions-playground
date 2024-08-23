@@ -23,5 +23,5 @@ jobs:
         run: uptime
       - name: uname
         run: uname -a
-      - name: disk
-        run: df -h
+      - name: debug
+        run: git config --global http.postBuffer
