@@ -14,14 +14,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
+        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
     runs-on: ${{ matrix.runner }}   
     
     steps:
       - uses: actions/checkout@v4
-      - name: Uptime
-        run: uptime
-      - name: uname
-        run: uname -a
-      - name: debug
-        run: git config http.postBuffer 524288000
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver-opts: |
+            network=host
+      - name: Docker Cirrus Cache Backend
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: "alpine/warpcache:latest"
+          cache-from: type=gha,url=http://localhost:12321/
+          cache-to: type=gha,url=http://localhost:12321/
