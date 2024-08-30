@@ -19,7 +19,7 @@ jobs:
           - name: cirrus-ubuntu-amd64
             image: "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"
           - name: cirrus-ubuntu-arm64
-            image: "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"
+            image: "ghcr.io/cirruslabs/ubuntu-runner-arm64:22.04-sm"
           - name: cirrus-macos-arm64
             image: "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"
 
@@ -48,7 +48,7 @@ jobs:
           - name: cirrus-ubuntu-amd64
             image: "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"
           - name: cirrus-ubuntu-arm64
-            image: "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-sm"
+            image: "ghcr.io/cirruslabs/ubuntu-runner-arm64:22.04-sm"
           - name: cirrus-macos-arm64
             image: "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"
 
