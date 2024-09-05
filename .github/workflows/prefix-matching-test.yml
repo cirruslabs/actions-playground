@@ -1,0 +1,32 @@
+name: Cache prefix matching test
+
+on:
+  push:
+
+env:
+  NUM_OF_1K_BLOCKS: 2560000
+
+jobs:
+  cirruslabs-cache:
+    name: "${{ matrix.runs_on.name }} + cirruslabs/cache"
+
+    strategy:
+      matrix:
+        runs_on:
+          - name: cirrus-macos-arm64
+            image: "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"
+
+    runs-on: ${{ matrix.runs_on.image }}
+
+    steps:
+      - name: Cache Binary
+        id: cache
+        uses: cirruslabs/cache@v4
+        with:
+          path: testfile
+          key: "cirruslabs-cache-${{ matrix.runs_on.name }}-attempt-${{ github.run_id }}-${{ github.run_attempt }}"
+          restore-keys: "cirruslabs-cache-${{ matrix.runs_on.name }}-attempt-${{ github.run_id }}-"
+
+      - name: Generate Binary
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: dd if=/dev/urandom of=testfile bs=1024 count=${{ env.NUM_OF_1K_BLOCKS }}
