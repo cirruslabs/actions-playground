@@ -22,3 +22,5 @@ jobs:
         run: xcodes installed
       - name: Select Xcode 16 RC
         run: sudo xcodes select 16
+      - name: Audio Devices
+        run: system_profiler SPAudioDataType
