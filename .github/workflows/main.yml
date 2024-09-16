@@ -1,0 +1,25 @@
+name: VNC port-forwarding test
+
+on:
+  push:
+
+jobs:
+  cirruslabs-cache:
+    name: "${{ matrix.runs_on.name }}"
+
+    strategy:
+      matrix:
+        runs_on:
+          - name: cirrus-macos-arm64
+            image: "ghcr.io/cirruslabs/macos-sonoma-xcode:latest"
+
+    runs-on: ${{ matrix.runs_on.image }}
+
+    steps:
+      - name: Configure VNC port-forwarding
+        run: |
+          brew install ngrok
+          NGROK_AUTHTOKEN="4ZtdsPRjmfdjLoDM2Qxh2_pwDT6gNwX1HVSXZYAfCa" ngrok tcp 5900 --log=stdout &
+
+      - name: Wait 1 hour
+        run: sleep 3600
