@@ -16,6 +16,7 @@ jobs:
       matrix:
         runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-sonoma-xcode:latest", "macos-latest"]
     runs-on: ${{ matrix.runner }}
+    timeout-minutes: 2
     steps:
       - uses: actions/checkout@v4
       - name: List Installed Xcodes
@@ -24,3 +25,5 @@ jobs:
         run: sudo xcodes select 16
       - name: Audio Devices
         run: system_profiler SPAudioDataType
+      - name: Say
+        run: say Hello
