@@ -19,7 +19,5 @@ jobs:
     timeout-minutes: 2
     steps:
       - uses: actions/checkout@v4
-      - name: Audio Devices
+      - name: Disk
         run: df -h
-      - name: Say
-        run: say Hello
