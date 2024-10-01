@@ -21,6 +21,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Disk Before
         run: df -h
+      - name: ulimit
+        run: ulimit -n maximum
       - name: Create file
         run: dd if=/dev/urandom of=8GB.bin bs=128M count=64 iflag=fullblock
       - name: Disk After
