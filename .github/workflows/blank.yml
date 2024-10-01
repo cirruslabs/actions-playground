@@ -14,16 +14,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-runner:sequoia"]
+        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 2
     steps:
       - uses: actions/checkout@v4
-      - name: List Installed Xcodes
-        run: xcodes installed
-      - name: Select Xcode 16 RC
-        run: sudo xcodes select 16
       - name: Audio Devices
-        run: system_profiler SPAudioDataType
+        run: df -h
       - name: Say
         run: say Hello
