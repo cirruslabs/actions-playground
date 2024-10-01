@@ -22,7 +22,7 @@ jobs:
       - name: Disk Before
         run: df -h
       - name: ulimit
-        run: ulimit -n maximum
+        run: ulimit -n $( ulimit -H -n )
       - name: Create file
         run: dd if=/dev/urandom of=8GB.bin bs=128M count=64 iflag=fullblock
       - name: Disk After
