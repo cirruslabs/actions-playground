@@ -18,5 +18,5 @@ jobs:
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 2
     steps:
-      - name: Disk
-        run: df -h
+      - name: macOS version
+        run: sw_vers
