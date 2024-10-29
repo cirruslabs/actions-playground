@@ -1,0 +1,32 @@
+name: Tuist Caching Test
+
+on:
+  push:
+
+jobs:
+  tuistcache:
+    name: "Tuist Caching Test"
+
+    runs-on: ghcr.io/cirruslabs/macos-sonoma-xcode:latest
+
+    steps:
+      - name: Show environment
+        run: printenv
+
+      - name: Install Tuist
+        run: |
+          brew tap tuist/tuist
+          brew install --formula tuist
+
+      - name: Show Tuist version
+        run: tuist version
+
+      - name: Clone Tuist repository
+        run: git clone https://github.com/tuist/tuist.git
+
+      - name: Modify Tuist configuration for a given fixture and run "tuist cache"
+        run: |
+          cd tuist/fixtures/ios_app_with_frameworks/
+          sed -i '' 's@https://canary.tuist.io@'"${CIRRUS_TUIST_CACHE_URL}"'@g' Tuist.swift
+          cat Tuist.swift
+          CI=1 TUIST_CONFIG_TOKEN=foo tuist cache
