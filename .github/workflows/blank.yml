@@ -20,3 +20,5 @@ jobs:
     steps:
       - name: Check macOS version
         run: sw_vers
+      - name: Disk Info
+        run: df -h
