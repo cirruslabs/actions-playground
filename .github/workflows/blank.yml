@@ -22,3 +22,5 @@ jobs:
         run: sw_vers
       - name: Disk Info
         run: df -h
+      - name: Xcodes List
+        run: sudo xcodes list
