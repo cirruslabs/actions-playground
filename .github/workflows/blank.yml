@@ -14,13 +14,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-sonoma-xcode:15.1"]
+        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 2
     steps:
-      - name: Check macOS version
-        run: sw_vers
       - name: Disk Info
         run: df -h
-      - name: Xcodes List
-        run: sudo xcodes installed
