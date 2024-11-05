@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         runner: ["ghcr.io/cirruslabs/macos-runner:sonoma"]
-    runs-on: ${{ matrix.runner }}
+    runs-on: ["${{ matrix.runner }}", "low-priority"]
     timeout-minutes: 2
     steps:
       - name: Disk Info
