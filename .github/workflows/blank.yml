@@ -14,8 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-sonoma-xcode:15.2", "ghcr.io/cirruslabs/macos-runner:sonoma"]
-    runs-on: ["${{ matrix.runner }}", "low-priority"]
+        runner: ["sonoma-xcode:15.2", "runner:sonoma", "runner:sequoia"]
+    runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.runner }}", "low-priority"]
     timeout-minutes: 2
     steps:
       - name: Check macOS version
