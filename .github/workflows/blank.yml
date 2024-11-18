@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Check macOS version
         run: sw_vers
+      - name: Uptime
+        run: uptime
       - name: Disk Info
         run: df -h
       - name: List
