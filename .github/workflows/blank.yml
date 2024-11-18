@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["sonoma-xcode:15.2", "runner:sonoma", "runner:sequoia"]
+        runner: ["sonoma-xcode:15.2", "runner:sonoma", "runner:sequoia", "macos-latest"]
     runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.runner }}", "low-priority"]
     timeout-minutes: 2
     steps:
@@ -22,7 +22,5 @@ jobs:
         run: sw_vers
       - name: Disk Info
         run: df -h
-      - name: Xcodes List
-        run: sudo xcodes installed
-      - name: Test
-        run: xcodebuild -runFirstLaunch
+      - name: List
+        run: xcrun simctl list
