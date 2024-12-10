@@ -24,5 +24,7 @@ jobs:
         run: uptime
       - name: Disk Info
         run: df -h
+      - name: List Installed Xcodes
+        run: xcodes installed
       - name: List
         run: xcrun simctl list
