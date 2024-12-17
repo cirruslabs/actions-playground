@@ -14,11 +14,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64-gpu:22.04"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-runner:sequoia"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 2
     steps:
+      - name: Check macOS version
+        run: sw_vers
       - name: Uptime
         run: uptime
-      - name: Cuda Version
-        run: nvcc --version
+      - name: Disk Info
+        run: df -h
+      - name: List Installed Xcodes
+        run: xcodes installed
+      - name: List
+        run: xcrun simctl list
