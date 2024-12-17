@@ -16,7 +16,7 @@ jobs:
       matrix:
         runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-runner:sequoia"]
     runs-on: ["${{ matrix.runner }}"]
-    timeout-minutes: 2
+    timeout-minutes: 10
     steps:
       - name: Check macOS version
         run: sw_vers
