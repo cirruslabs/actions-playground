@@ -24,6 +24,8 @@ jobs:
         run: uptime
       - name: Disk Info
         run: df -h
+      - name: List Ruby Versions
+        run: rbenv versions
       - name: List Installed Xcodes
         run: xcodes installed
       - name: List
