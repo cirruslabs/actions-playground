@@ -24,6 +24,8 @@ jobs:
         run: uptime
       - name: Disk Info
         run: df -h
+      - name: Fastlane Version
+        run: fastlane --version
       - name: List Ruby Versions
         run: rbenv versions
       - name: List Installed Xcodes
