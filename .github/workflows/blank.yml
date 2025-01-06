@@ -32,5 +32,9 @@ jobs:
         run: xcodes installed
       - name: Brew Install
         run: brew install hashicorp/tap/vault
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: test
       - name: List
         run: xcrun simctl list
