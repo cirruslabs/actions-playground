@@ -1,0 +1,23 @@
+name: Check swap
+
+on:
+  push:
+
+jobs:
+  check-swap:
+    name: "Check swap"
+
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, ubuntu-latest-large]
+
+    runs-on: ${{ matrix.runs-on }}
+
+    steps:
+      - name: Check CPU
+        run: |
+          lscpu
+
+      - name: Check RAM
+        run: |
+          free -m
