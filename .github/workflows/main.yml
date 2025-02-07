@@ -12,6 +12,8 @@ jobs:
     runs-on: ${{ matrix.runs_on }}
     steps:
       - uses: actions/checkout@v4
+      - name: Wait 1 hour
+        run: sleep 3600
       - name: Print environment
         run: env
       - name: Cache Binary
