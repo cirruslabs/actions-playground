@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   macos:
-    name: "${{ matrix.runs_on }} + edigaryev/cache@v4"
+    name: "${{ matrix.runs_on }} + cirruslabs/cache@v4"
     strategy:
       matrix:
         runs_on:
@@ -21,7 +21,7 @@ jobs:
         uses: edigaryev/cache@v4
         with:
           path: testfile
-          key: "try-7-${{ matrix.runs_on }}"
+          key: "try-8-${{ matrix.runs_on }}"
       - name: Generate Binary
         if: steps.cache.outputs.cache-hit != 'true'
         run: dd if=/dev/urandom of=testfile bs=65536 count=3200
