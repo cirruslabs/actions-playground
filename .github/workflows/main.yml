@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   macos:
-    name: "${{ matrix.runs_on }} + cirruslabs/cache@v4"
+    name: "${{ matrix.runs_on }} + edigaryev/cache@v4"
     strategy:
       matrix:
         runs_on:
