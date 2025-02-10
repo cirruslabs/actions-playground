@@ -14,17 +14,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04"]
+        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Debug
-        run: free -h
-      - name: install Kotlin
-        run: sudo snap install --classic kotlin
-      - name: Java
-        run: java -version
-      - name: Run Kotlin
-        run: kotlinc -script url.kts
+      - name: env
+        run: printenv
+      - name: Execute Javascript
+        uses: amochkin/action-javascript@v1
+        with:
+          js: |
+            console.log(process.env)
