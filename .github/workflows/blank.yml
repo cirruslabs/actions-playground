@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sequoia-xl", "ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-runner:sonoma-xl"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
