@@ -22,8 +22,8 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: env
-        run: printenv
+      - name: delete simulators
+        run: xcrun simctl delete all
       - name: Execute Javascript
         uses: amochkin/action-javascript@v1
         with:
