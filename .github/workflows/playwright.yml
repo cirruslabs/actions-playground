@@ -10,7 +10,7 @@ jobs:
     runs-on: ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md
     container:
       image: mcr.microsoft.com/playwright:v1.51.0-noble
-      options: --user 1001
+      options: --user root
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
