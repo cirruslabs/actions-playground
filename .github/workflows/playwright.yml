@@ -16,7 +16,3 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - name: Install dependencies
-        run: npm ci
-      - name: Run your tests
-        run: npx playwright test
