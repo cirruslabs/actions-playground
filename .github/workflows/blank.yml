@@ -23,7 +23,7 @@ jobs:
       - name: uptime
         run: uptime
       - name: install
-        run: xcodes runtimes install "iOS 18.2"
+        run: xcodebuild -downloadPlatform iOS -buildVersion 18.2
       - name: runtimes
         run: xcrun simctl list runtimes
       - name: devices
