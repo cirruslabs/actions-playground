@@ -22,3 +22,5 @@ jobs:
         uses: actions/checkout@v4
       - name: runtimes
         run: xcrun simctl list runtimes
+      - name: devices
+        run: xcrun simctl list devices
