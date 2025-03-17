@@ -26,3 +26,17 @@ jobs:
         run: xcrun simctl list runtimes
       - name: devices
         run: xcrun simctl list devices
+      
+      - name: Cache Binary
+        id: cache-bin
+        uses: actions/cache@v4
+        with:
+          path: testfile
+          key: test-key
+  
+      - name: Generate Binary
+        if: steps.cache-bin.outputs.cache-hit != 'true'
+        run: dd if=/dev/urandom of=testfile bs=1024 count=102400
+  
+      - name: Stat Binary
+        run: stat testfile
