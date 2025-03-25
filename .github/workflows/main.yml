@@ -1,0 +1,22 @@
+name: Chacha
+on:
+  push:
+jobs:
+  macos:
+    name: "ghcr.io/cirruslabs/macos-runner:sequoia + cirruslabs/cache@v4"
+    runs-on: ["ghcr.io/cirruslabs/macos-runner:sequoia", "worker:aac8-6"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print environment
+        run: env
+      - name: Cache Binary
+        id: cache
+        uses: cirruslabs/cache@v4
+        with:
+          path: testfile
+          key: "try-10-${{ matrix.runs_on }}"
+      - name: Generate Binary
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: dd if=/dev/urandom of=testfile bs=65536 count=3200
+      - name: Stat Binary
+        run: stat testfile
