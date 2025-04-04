@@ -11,7 +11,7 @@ jobs:
         run: env
       - name: Cache Binary
         id: cache
-        uses: edigaryev/cache@v4
+        uses: cirruslabs/cache@v4-thunder
         with:
           path: testfile
           key: "try-10-${{ matrix.runs_on }}"
