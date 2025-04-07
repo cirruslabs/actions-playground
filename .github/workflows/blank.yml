@@ -29,6 +29,6 @@ jobs:
       - name: devices
         run: xcrun simctl list devices
       - name: reinstall
-        run: brew uninstall fastlane && brew install fastlane
+        run: brew reinstall fastlane
       - name: bundle
         run: bundle install
