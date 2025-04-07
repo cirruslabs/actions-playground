@@ -14,19 +14,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia"]
+        runner: ["ghcr.io/cirruslabs/macos-sequoia-xcode:16.3", "ghcr.io/cirruslabs/macos-sequoia-xcode:16.2", "ghcr.io/cirruslabs/macos-sequoia-xcode:16.1"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: gcc
-        run: brew install gcc
-      - name: Xcode Select Version
-        run: sudo xcodes select 16.2
       - name: uptime
         run: uptime
-      - name: reinstall bundler
-        run: gem uninstall bundler && gem install bundler --version 2.6.3
       - name: bundle
         run: bundle install
