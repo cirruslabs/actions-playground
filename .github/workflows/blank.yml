@@ -26,5 +26,7 @@ jobs:
         run: sudo xcodes select 16.2
       - name: uptime
         run: uptime
+      - name: reinstall bundler
+        run: gem uninstall bundler && gem install bundler --version 2.6.3
       - name: bundle
         run: bundle install
