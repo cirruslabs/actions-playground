@@ -26,5 +26,7 @@ jobs:
         run: xcrun simctl list runtimes
       - name: devices
         run: xcrun simctl list devices
+      - name: rubies
+        run: rbenv install -L
       - name: bundle
         run: bundle install
