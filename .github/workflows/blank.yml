@@ -28,3 +28,5 @@ jobs:
         run: xcrun simctl list runtimes
       - name: devices
         run: xcrun simctl list devices
+      - name: bundle
+        run: bundle install
