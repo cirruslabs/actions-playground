@@ -24,7 +24,7 @@ jobs:
         run: uptime
       - name: Xcode
         run: sudo xcode-select --switch /Applications/Xcode_16.2.app
-      - name: Remove DerivedData
-        run: rm -rf ~/Library/Developer/Xcode/DerivedData
+      - name: env
+        run: fastlane env
       - name: bundle
         run: bundle install
