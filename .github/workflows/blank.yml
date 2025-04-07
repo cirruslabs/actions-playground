@@ -21,16 +21,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Xcode Select Version
-        uses: mobiledevops/xcode-select-version-action@v1
-        with:
-          xcode-select-version: 16.2
+        run: sudo xcodes select 16.2
       - name: uptime
         run: uptime
-      - name: runtimes
-        run: xcrun simctl list runtimes
-      - name: devices
-        run: xcrun simctl list devices
-      - name: fastlane version
-        run: fastlane --version
+      - name: cat
+        run: cat /Users/admin/.rbenv/versions/3.4.2/include/ruby-3.4.0/ruby/internal/stdckdint.h
       - name: bundle
         run: bundle install
