@@ -23,7 +23,7 @@ jobs:
       - name: uptime
         run: uptime
       - name: Xcodes
-        run: xcodes list
+        run: xcodes installed
       - name: runtimes
         run: xcrun simctl list runtimes
       - name: devices
