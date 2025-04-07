@@ -14,19 +14,23 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-sequoia-xcode:16.2"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Xcode Select Version
+        uses: mobiledevops/xcode-select-version-action@v1
+        with:
+          xcode-select-version: 16.2
       - name: uptime
         run: uptime
       - name: runtimes
         run: xcrun simctl list runtimes
       - name: devices
         run: xcrun simctl list devices
-      - name: rubies
-        run: rbenv versions
+      - name: fastlane version
+        run: fastlane --version
       - name: bundle
         run: bundle install
