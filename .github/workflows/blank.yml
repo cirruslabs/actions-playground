@@ -25,4 +25,6 @@ jobs:
       - name: rubies
         run: rbenv versions
       - name: bundle
-        run: bundle install
+        run: |
+          export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+          bundle install
