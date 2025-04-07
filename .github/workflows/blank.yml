@@ -25,6 +25,6 @@ jobs:
       - name: Xcode
         run: sudo xcode-select --switch /Applications/Xcode_16.2.app
       - name: env
-        run: fastlane env
+        run: bundle exec fastlane env
       - name: bundle
         run: bundle install
