@@ -1,10 +1,10 @@
-name: Check if ghcr.io/cirruslabs/macos-ventura-xcode:latest works
+name: Check if ghcr.io/cirruslabs/macos-sonoma-xcode:latest works
 on:
   push:
 jobs:
   macos:
-    name: "Check if ghcr.io/cirruslabs/macos-ventura-xcode:latest works"
-    runs-on: ["ghcr.io/cirruslabs/macos-ventura-xcode:latest"]
+    name: "Check if ghcr.io/cirruslabs/macos-sonoma-xcode:latest works"
+    runs-on: ["ghcr.io/cirruslabs/macos-sonoma-xcode:latest"]
     steps:
       - uses: actions/checkout@v4
       - name: Print environment
