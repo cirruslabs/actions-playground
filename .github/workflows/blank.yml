@@ -25,6 +25,6 @@ jobs:
       - name: Xcode
         run: sudo xcode-select --switch /Applications/Xcode_16.2.app
       - name: Verify Xcode
-        run: code-select -p
+        run: xcode-select -p
       - name: bundle
         run: bundle install
