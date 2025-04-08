@@ -24,7 +24,7 @@ jobs:
         run: uptime
       - name: Xcode
         run: sudo xcode-select --switch /Applications/Xcode_16.2.app
-      - name: Verify Xcode
-        run: xcode-select -p
+      - name: Doctor
+        run: bundle doctor
       - name: bundle
         run: bundle install
