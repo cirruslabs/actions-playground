@@ -23,7 +23,7 @@ jobs:
       - name: uptime
         run: uptime
       - name: fastlane
-        run: sudo gem install fastlane
+        run: gem install fastlane
       - name: Xcode
         run: sudo xcode-select --switch /Applications/Xcode_16.2.app
       - name: bundle
