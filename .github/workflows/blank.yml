@@ -24,7 +24,7 @@ jobs:
         run: uptime
       - name: Xcode
         run: sudo xcode-select --switch /Applications/Xcode_16.2.app
-      - name: Doctor
-        run: bundle doctor
+      - name: xcov
+        run: sudo gem install xcov
       - name: bundle
         run: bundle install
