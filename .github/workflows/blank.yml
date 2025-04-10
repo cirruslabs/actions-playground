@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: clang
-        run: brew install llvm
+      - name: CLT
+        run: ls /Library/Developer/CommandLineTools
       - name: bundle
         run: bundle install
