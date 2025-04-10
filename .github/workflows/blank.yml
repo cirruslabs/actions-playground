@@ -22,5 +22,7 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
+      - name: clang
+        run: brew install clang
       - name: bundle
         run: bundle install
