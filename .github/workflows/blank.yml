@@ -24,9 +24,7 @@ jobs:
         run: uptime
       - name: version
         run: xcodebuild -version
-      - name: gcc
-        run: gcc -v
-      - name: clang
-        run: clang -v
+      - name: rbenv
+        run: rbenv installed
       - name: bundle
         run: bundle install
