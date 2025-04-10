@@ -5,7 +5,7 @@ gem 'xcpretty'
 gem 'plist', '~> 3.6'
 gem 'xcov',  '>=1.7.5'
 gem 'json',  '2.6.2'
-gem 'cocoapods', '1.15.2'
+gem 'cocoapods'
 
 gem "abbrev"
 gem "mutex_m"
