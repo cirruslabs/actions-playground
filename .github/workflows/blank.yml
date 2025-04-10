@@ -25,6 +25,6 @@ jobs:
       - name: version
         run: xcodebuild -version
       - name: rbenv
-        run: rbenv installed
+        run: rbenv install -L
       - name: bundle
         run: bundle install
