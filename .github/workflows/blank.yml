@@ -23,6 +23,6 @@ jobs:
       - name: uptime
         run: uptime
       - name: clang
-        run: brew install clang
+        run: brew install llvm
       - name: bundle
         run: bundle install
