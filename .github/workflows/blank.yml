@@ -25,6 +25,6 @@ jobs:
       - name: version
         run: xcodebuild -version
       - name: rbenv
-        run: rbenv versions
+        run: rbenv global 3.3.7
       - name: bundle
         run: bundle install
