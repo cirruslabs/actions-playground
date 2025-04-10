@@ -14,7 +14,7 @@ jobs:
         uses: cirruslabs/cache@v4-thunder
         with:
           path: testfile
-          key: "try-10-${{ matrix.runs_on }}"
+          key: "try-11-${{ matrix.runs_on }}"
       - name: Generate Binary
         if: steps.cache.outputs.cache-hit != 'true'
         run: dd if=/dev/urandom of=testfile bs=65536 count=32768
