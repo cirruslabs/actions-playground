@@ -1,9 +1,9 @@
-name: Chacha
+name: cirruslabs/cache@v4-thunder
 on:
   push:
 jobs:
   macos:
-    name: "ghcr.io/cirruslabs/macos-runner:sequoia + cirruslabs/cache@v4"
+    name: "ghcr.io/cirruslabs/macos-runner:sequoia + cirruslabs/cache@v4-thunder"
     runs-on: ["ghcr.io/cirruslabs/macos-runner:sequoia", "worker:aac8-6"]
     steps:
       - uses: actions/checkout@v4
