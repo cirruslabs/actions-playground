@@ -4,7 +4,7 @@ on:
 jobs:
   macos:
     name: "ghcr.io/cirruslabs/macos-runner:sequoia + cirruslabs/cache@v4"
-    runs-on: ["ghcr.io/cirruslabs/macos-runner:sequoia", "worker:aac6-2"]
+    runs-on: ["ghcr.io/cirruslabs/macos-runner:sequoia", "worker:aac8-6"]
     steps:
       - uses: actions/checkout@v4
       - name: Print environment
