@@ -14,23 +14,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia"]
     runs-on: 
       group: experimental
-      labels: ["${{ matrix.runner }}", "runner_group_id:7"]
+      labels: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: Java
-        run: java -version
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-      - name: Accept licenses
-        run: yes | sdkmanager --licenses
-      - name: Install image
-        run: sdkmanager --verbose "system-images;android-30;google_apis;x86_64"
-      - name: sleep
-        run: sleep 300
+      - name: local-share
+        run: find ~/.local/share -type f
