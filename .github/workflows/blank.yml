@@ -17,7 +17,7 @@ jobs:
         runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md"]
     runs-on: 
       group: experimental
-      labels: ["${{ matrix.runner }}"]
+      labels: ["${{ matrix.runner }}", "runner_group_id:7"]
     timeout-minutes: 10
     steps:
       - name: Checkout
