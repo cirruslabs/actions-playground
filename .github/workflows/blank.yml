@@ -22,5 +22,8 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.3'
       - name: local-share
         run: find ~/.local/share -type f
