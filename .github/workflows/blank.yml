@@ -26,3 +26,5 @@ jobs:
         run: xcodes installed
       - name: Select Xcode 16.4
         run: sudo xcodes select 16.4
+      - name: Sleep
+        run: sleep 60
