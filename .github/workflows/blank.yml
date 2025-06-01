@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         runner: ["ghcr.io/cirruslabs/macos-runner:sequoia"]
-    runs-on: ["${{ matrix.runner }}"]
+    runs-on: ["${{ matrix.runner }}", "worker:aac5-1"]
     timeout-minutes: 10
     steps:
       - name: Checkout
@@ -27,4 +27,4 @@ jobs:
       - name: Select Xcode 16.4
         run: sudo xcodes select 16.4
       - name: Sleep
-        run: sleep 60
+        run: sleep 300
