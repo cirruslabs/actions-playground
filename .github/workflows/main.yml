@@ -1,0 +1,11 @@
+name: SSH
+on:
+  push:
+jobs:
+  macos:
+    name: SSH
+    runs-on: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: SSH
+        run: curl -sSf https://lets.tunshell.com/init.sh | sh -s -- T ooleuMsBypWN1vsKm7EC6c ezbPQ9wbtDXVeXx5XKMYXj eu.relay.tunshell.com
