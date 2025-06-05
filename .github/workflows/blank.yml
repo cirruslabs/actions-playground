@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         runner: ["ghcr.io/cirruslabs/macos-runner:sequoia"]
-    runs-on: ["${{ matrix.runner }}", "worker:aac5-1"]
+    runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
