@@ -22,8 +22,8 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: uname
-        run: uname -a
+      - name: kernel
+        run: cat /proc/sys/kernel/randomize_va_space
       - name: List Installed Xcodes
         run: xcodes installed
       - name: Select Xcode 16.4
