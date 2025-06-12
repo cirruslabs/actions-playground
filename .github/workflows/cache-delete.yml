@@ -1,0 +1,28 @@
+name: Cache delete
+
+on:
+  push:
+
+jobs:
+  macos:
+    name: "Cache delete"
+    runs-on: "ghcr.io/cirruslabs/macos-runner:sequoia"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check
+        run: |
+          curl -I http://127.0.0.1:12321/supertest-1
+      - name: Cache
+        id: cache
+        uses: cirruslabs/cache@v4
+        with:
+          key: supertest-1
+          path: dir
+      - name: Generate Prime Numbers
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir dir/
+          echo "test" > dir/test.txt
+      - name: Check
+        run: find dir/
