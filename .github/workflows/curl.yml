@@ -1,0 +1,14 @@
+name: cURL
+
+on:
+  push:
+
+jobs:
+  macos:
+    name: "cURL"
+    runs-on: "ghcr.io/cirruslabs/macos-runner:sequoia"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: cURL
+        run: curl "https://cache.nixos.org/nix-cache-info"
