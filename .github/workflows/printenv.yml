@@ -11,4 +11,4 @@ jobs:
       - name: printenv
         run: printenv
       - name: cURL
-        run: echo curl -I http://${CIRRUS_HTTP_CACHE_HOST}
+        run: echo curl -I http://${{ env.CIRRUS_HTTP_CACHE_HOST }}
