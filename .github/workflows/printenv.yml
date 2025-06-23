@@ -10,3 +10,5 @@ jobs:
     steps:
       - name: printenv
         run: printenv
+      - name: cURL
+        run: echo curl -I http://${CIRRUS_HTTP_CACHE_HOST}
