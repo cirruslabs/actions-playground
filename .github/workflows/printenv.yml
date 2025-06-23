@@ -1,0 +1,12 @@
+name: printenv
+
+on:
+  push:
+
+jobs:
+  curl:
+    name: "printenv"
+    runs-on: "ghcr.io/cirruslabs/macos-runner:sequoia"
+    steps:
+      - name: printenv
+        run: printenv
