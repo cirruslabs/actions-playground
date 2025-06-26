@@ -27,5 +27,5 @@ jobs:
           context: .
           push: false
           tags: "cirrus:latest"
-          cache-from: type=gha,url_v2=https://superb-more-seagull.ngrok-free.app/,url=https://superb-more-seagull.ngrok-free.app/
-          cache-to: type=gha,url_v2=https://superb-more-seagull.ngrok-free.app/,url=https://superb-more-seagull.ngrok-free.app/,mode=max
+          cache-from: type=gha,url_v2=${ACTIONS_RESULTS_URL}
+          cache-to: type=gha,url_v2=${ACTIONS_RESULTS_URL},mode=max
