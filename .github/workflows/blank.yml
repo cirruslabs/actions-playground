@@ -1,12 +1,7 @@
 name: CI
 
 on:
-  # schedule:
-   # - cron: "*/60 * * * *"
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   macos:
