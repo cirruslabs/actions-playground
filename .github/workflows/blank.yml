@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sequoia-xl"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
@@ -22,15 +22,5 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-        with:
-          driver-opts: network=host
-      - name: build with cache
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: false
-          tags: "cirrus:latest"
-          cache-from: type=gha,url_v2=http://127.0.0.1:12321/,url=http://127.0.0.1:12321/
-          cache-to: type=gha,url_v2=http://127.0.0.1:12321/,url=http://127.0.0.1:12321/,mode=max
+      - name: measure
+        run: time xcrun simctl list
