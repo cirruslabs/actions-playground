@@ -14,13 +14,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sequoia-xl"]
+        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-xs"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: uptime
-        run: uptime
-      - name: measure
-        run: time xcrun simctl list
+      - name: disk
+        run: dh -h
