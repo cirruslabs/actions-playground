@@ -14,15 +14,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-sonoma-xcode:15.4"]
+        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: disk
-        run: df -h
-      - name: List Installed Xcodes
-        run: xcodes installed
-      - name: Select Xcode 16.2
-        run: sudo xcodes select 16.2
+      - name: uptime
+        run: uptime
