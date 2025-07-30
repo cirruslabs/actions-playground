@@ -25,6 +25,6 @@ jobs:
       - name: date
         run: date
       - name: sync
-        run: chronyd -q
+        run: sudo ntpdate -u europe.pool.ntp.org
       - name: date
         run: date
