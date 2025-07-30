@@ -24,6 +24,8 @@ jobs:
         run: uptime
       - name: date
         run: date
+      - name: install
+        run: sudo apt-get install ntpdate
       - name: sync
         run: sudo ntpdate -u europe.pool.ntp.org
       - name: date
