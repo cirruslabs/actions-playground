@@ -24,11 +24,7 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: pwd after
-        run: pwd
       - name: versions
-        run: |
-          swiftlint --version
-          swiftgen --version
-          tuist --version
-          mint --version
+        run: swiftlint --version
+      - name: run
+        run: mint run realm/SwiftLint@0.59.0
