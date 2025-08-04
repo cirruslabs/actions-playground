@@ -30,6 +30,3 @@ jobs:
           swiftgen --version
           tuist --version
           mint --version
-        run: sudo ntpdate -u europe.pool.ntp.org
-      - name: date
-        run: date
