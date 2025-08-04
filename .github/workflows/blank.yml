@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-xs", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-xs"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
@@ -24,9 +24,12 @@ jobs:
         run: uptime
       - name: date
         run: date
-      - name: install
-        run: sudo apt-get install ntpdate
-      - name: sync
+      - name: versions
+        run: |
+          swiftlint --version
+          swiftgen --version
+          tuist --version
+          mint --version
         run: sudo ntpdate -u europe.pool.ntp.org
       - name: date
         run: date
