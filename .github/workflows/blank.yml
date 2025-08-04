@@ -18,12 +18,14 @@ jobs:
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
+      - name: pwd before
+        run: pwd
       - name: Checkout
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: date
-        run: date
+      - name: pwd after
+        run: pwd
       - name: versions
         run: |
           swiftlint --version
