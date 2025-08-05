@@ -24,7 +24,5 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: versions
-        run: swiftlint --version
-      - name: run
-        run: mint run realm/SwiftLint@0.59.0
+      - name: env
+        run: printenv
