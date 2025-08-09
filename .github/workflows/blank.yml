@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
@@ -24,5 +24,14 @@ jobs:
         uses: actions/checkout@v4
       - name: uptime
         run: uptime
-      - name: env
-        run: printenv
+      - name: Calculate the cache key to use (YYYY-MM-DD)
+        run: echo "CACHE_KEY=testing" >> $GITHUB_ENV
+      - name: Cache a random binary file using cirruslabs/cache@v4
+        id: cache
+        uses: "cirruslabs/cache@v4"
+        with:
+          path: testfile
+          key: "testfile-v4-${{ env.CACHE_KEY }}"
+      - name: Generate a random 5GB binary file on cache miss
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: dd if=/dev/urandom of=testfile bs=65536 count=81920
