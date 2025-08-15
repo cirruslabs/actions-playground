@@ -25,4 +25,4 @@ jobs:
       - name: uptime
         run: uptime
       - name: donwload
-        run: xcodebuild -downloadComponent MetalToolchain
+        run: xcodebuild -downloadComponent metalToolchain
