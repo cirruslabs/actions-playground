@@ -25,4 +25,4 @@ jobs:
       - name: uptime
         run: uptime
       - name: info
-        run: cat /proc/cpuinfo
+        run: lscpu
