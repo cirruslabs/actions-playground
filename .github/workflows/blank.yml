@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/ubuntu-runner-arm64:24.04-sm"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/ubuntu-runner-arm64:24.04-sm"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
@@ -22,7 +22,7 @@ jobs:
         run: pwd
       - name: Checkout
         uses: actions/checkout@v4
-      - name: uptime
-        run: uptime
+      - name: disk
+        run: df -h
       - name: info
         run: lscpu
