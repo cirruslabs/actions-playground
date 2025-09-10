@@ -25,4 +25,4 @@ jobs:
       - name: disk
         run: df -h
       - name: info
-        run: lscpu
+        run: xcodes list
