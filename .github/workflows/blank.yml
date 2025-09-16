@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:tahoe"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:tahoe"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
@@ -26,3 +26,5 @@ jobs:
         run: df -h
       - name: info
         run: xcodes installed
+      - name: Select Xcode 26
+        run: sudo xcodes select 26
