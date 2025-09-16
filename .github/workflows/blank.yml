@@ -28,3 +28,5 @@ jobs:
         run: xcodes installed
       - name: Select Xcode 26
         run: sudo xcodes select 26
+      - name: Simulator
+        run: xcrun simctl list
