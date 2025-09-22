@@ -14,15 +14,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/ubuntu-runner-arm64:24.04-lg"]
+        runner: ["ghcr.io/cirruslabs/ubuntu-runner-arm64:24.04-sm", "ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-sm"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
-      - name: pwd before
-        run: pwd
       - name: Checkout
         uses: actions/checkout@v4
-      - name: disk
-        run: df -h
+      - name: install
+        run: sudo apt install speedtest-cli
       - name: info
-        run: uptime
+        run: speedtest-cli
