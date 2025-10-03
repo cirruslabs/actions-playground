@@ -14,11 +14,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md", "ghcr.io/cirruslabs/ubuntu-runner-arm64:24.04-md", "ghcr.io/cirruslabs/ubuntu-runner-amd64-gpu:24.04"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sonoma"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: info
-        run: uptime
+        run: xcodes installed
