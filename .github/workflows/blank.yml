@@ -14,11 +14,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sonoma"]
+        runner: ["ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md"]
     runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: info
-        run: xcodes installed
+      - name: Set Swap Space
+        uses: pierotofy/set-swap-space@master
+        with:
+          swap-size-gb: 10
