@@ -24,3 +24,5 @@ jobs:
         uses: pierotofy/set-swap-space@master
         with:
           swap-size-gb: 10
+      - name: KVM check
+        run: sudo kvm-ok
