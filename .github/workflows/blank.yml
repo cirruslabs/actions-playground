@@ -28,3 +28,7 @@ jobs:
         run: sudo kvm-ok
       - name: Emulator check
         run: emulator -accel-check
+      - name: uname
+        run: uname -r
+      - name: KVM version
+        run: dpkg -s qemu-kvm | grep Version
