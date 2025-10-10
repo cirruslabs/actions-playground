@@ -26,3 +26,5 @@ jobs:
           swap-size-gb: 10
       - name: KVM check
         run: sudo kvm-ok
+      - name: Emulator check
+        run: emulator -accel-check
