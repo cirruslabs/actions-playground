@@ -20,5 +20,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: uname
-        run: uname -r
+      - name: test
+        run: networkQuality
