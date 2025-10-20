@@ -21,6 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: remove
-        run: sudo add-apt-repository --remove ppa:apt.fury.io/cirruslabs
+        run: cat /etc/apt/sources.list /etc/apt/sources.list.d/*
       - name: update
         run: sudo apt-get update
