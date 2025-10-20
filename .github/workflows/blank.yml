@@ -21,6 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: remove
-        run: ls /etc/apt/sources.list.d/
+        run: sudo rm /etc/apt/sources.list.d/cirruslabs.list
       - name: update
         run: sudo apt-get update
