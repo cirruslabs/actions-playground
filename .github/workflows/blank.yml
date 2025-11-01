@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         runner: ["ghcr.io/cirruslabs/macos-runner:tahoe"]
-    runs-on: ["${{ matrix.runner }}"]
+    runs-on: ["${{ matrix.runner }}", "worker:zzy10-6"]
     timeout-minutes: 10
     steps:
       - name: Checkout
