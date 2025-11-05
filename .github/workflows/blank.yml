@@ -22,3 +22,5 @@ jobs:
         uses: actions/checkout@v4
       - name: list
         run: xcrun simctl list
+      - name: env
+        run: printenv
