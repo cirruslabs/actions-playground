@@ -14,11 +14,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:tahoe"]
-    runs-on: ["${{ matrix.runner }}", "worker:zzy10-6"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/macos-runner:sequoia"]
+    runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: network
-        run: networkQuality
+      - name: list
+        run: xcrun simctl list
