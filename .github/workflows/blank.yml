@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Workaround
+        run: time xcrun simctl runtime dyld_shared_cache update --all || xcrun simctl list >> /dev/null || true
       - name: cache
         run: |
           xcrun simctl runtime dyld_shared_cache update --all
