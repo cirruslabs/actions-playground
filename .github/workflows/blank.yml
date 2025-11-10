@@ -21,7 +21,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: cache
-        run: xcrun simctl runtime dyld_shared_cache update --all
+        run: |
+          xcrun simctl runtime dyld_shared_cache update --all
+          xcrun simctl list runtimes -v
+          xcrun simctl list devices
       - name: list
         run: xcrun simctl list
       - name: env
