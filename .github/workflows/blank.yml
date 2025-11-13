@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Workaround
-        run: time xcrun simctl runtime dyld_shared_cache update --all || xcrun simctl list >> /dev/null || true
+        run: xcodebuild -downloadPlatform iOS -buildVersion 18.7.2
       - name: cache
         run: |
           xcrun simctl runtime dyld_shared_cache update --all
