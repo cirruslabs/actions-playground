@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         runner: ["ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/macos-runner:sequoia"]
-    runs-on: ["${{ matrix.runner }}"]
+    runs-on: ["${{ matrix.runner }},runner_concurrency_group=${{ github.run_id }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
