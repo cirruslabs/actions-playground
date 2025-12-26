@@ -26,5 +26,7 @@ jobs:
           xcrun simctl list -v
       - name: list
         run: xcrun simctl list
-      - name: env
-        run: printenv
+      - name: install
+        run: brew install tw93/tap/mole
+      - name: clean
+        run: mo clean
