@@ -9,13 +9,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  macos:
+  run:
     name: "Run"
-    strategy:
-      fail-fast: false
-      matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md"]
-    runs-on: ["${{ matrix.runner }}"]
+    runs-on: ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md
     timeout-minutes: 10
     steps:
       - name: Checkout
