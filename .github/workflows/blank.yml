@@ -14,19 +14,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/macos-runner:sequoia"]
-    runs-on: ["${{ matrix.runner }},runner_concurrency_group=${{ github.run_id }}"]
+        runner: ["ghcr.io/cirruslabs/macos-runner:tahoe", "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md"]
+    runs-on: ["${{ matrix.runner }}"]
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: cache
-        run: |
-          xcrun simctl runtime dyld_shared_cache update --all
-          xcrun simctl list -v
-      - name: list
-        run: xcrun simctl list
-      - name: install
-        run: brew install tw93/tap/mole
-      - name: clean
-        run: mo clean
+      - name: uptime
+        run: uptime
