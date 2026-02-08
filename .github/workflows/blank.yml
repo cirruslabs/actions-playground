@@ -11,7 +11,7 @@ on:
 jobs:
   run:
     name: "Run"
-    runs-on: ghcr.io/cirruslabs/macos-runner:tahoe
+    runs-on: ghcr.io/cirruslabs/macos-runner:tahoe-xl
     timeout-minutes: 10
     steps:
       - name: Checkout
