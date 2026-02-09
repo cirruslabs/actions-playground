@@ -11,10 +11,15 @@ on:
 jobs:
   run:
     name: "Run"
-    runs-on: ghcr.io/cirruslabs/macos-runner:tahoe-xl
+    strategy:
+      matrix:
+        version: ["tahoe", "sequoia"]
+    runs-on: "ghcr.io/cirruslabs/macos-runner:${{ matrix.version }}"
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: uptime
         run: uptime
+      - name: gs
+        run: gs --version
