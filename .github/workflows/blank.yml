@@ -19,4 +19,4 @@ jobs:
       - name: uptime
         run: uptime
       - name: gs
-        run: "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager platforms;android-35 system-images;android-35;google_apis;x86_64"
+        run: "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \"platforms;android-35\" \"system-images;android-35;google_apis;x86_64\""
