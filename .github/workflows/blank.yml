@@ -11,10 +11,7 @@ on:
 jobs:
   run:
     name: "Run"
-    strategy:
-      matrix:
-        version: ["tahoe", "sequoia"]
-    runs-on: "ghcr.io/cirruslabs/macos-runner:${{ matrix.version }}"
+    runs-on: "ghcr.io/cirruslabs/ubuntu-runner-amd64:24.04-md"
     timeout-minutes: 10
     steps:
       - name: Checkout
@@ -22,4 +19,4 @@ jobs:
       - name: uptime
         run: uptime
       - name: gs
-        run: gs --version
+        run: "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager platforms;android-35 system-images;android-35;google_apis;x86_64"
