@@ -18,5 +18,7 @@ jobs:
         uses: actions/checkout@v5
       - name: uptime
         run: uptime
+      - name: installed
+        run: "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list_installed"
       - name: test
         run: "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \"platforms;android-35\" \"system-images;android-35;google_apis;x86_64\""
